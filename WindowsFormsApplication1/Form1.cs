@@ -135,11 +135,7 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Update.xml");
-
-
-            MethodInvoker mi = new MethodInvoker(WaitKey);
-            mi.BeginInvoke(null, null);
-
+            
             checkedListBox1.Items.Clear();
             for (int i = 1; i <= Screen.AllScreens.Length; i++)
             {
@@ -154,6 +150,12 @@ namespace WindowsFormsApplication1
                     checkedListBox1.SetItemChecked(i - 1, true);
                 }
             }
+
+
+            MethodInvoker mi = new MethodInvoker(WaitKey);
+            mi.BeginInvoke(null, null);
+
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
