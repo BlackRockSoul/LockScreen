@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
                 using (var client = new WebClient())
                 {
                     client.Headers.Add("user-agent", "Anything");
-                    client.DownloadFile(
+                    client.DownloadFile( 
                         "https://raw.githubusercontent.com/BlackRockSoul/LockScreen/bf4363f35c18152816effb9a14c06b0d03157a9a/WindowsFormsApplication1/bin/Release/AutoUpdater.NET.dll",
                         "AutoUpdater.NET");
                     File.Move("AutoUpdater.NET", "AutoUpdater.NET" + ".dll");//само переименование
