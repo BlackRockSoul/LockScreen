@@ -2,7 +2,6 @@
 <item>
 <title>New version 1.2.4.0 is available for LockScreen</title>
 <version>1.2.4.0</version>
-<url>https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/bin/Release/AutoUpdater.NET.dll</url>
 <url>https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/bin/Release/LockScreen.exe</url>
 <changelog>https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Changelog.html</changelog>
 </item>
