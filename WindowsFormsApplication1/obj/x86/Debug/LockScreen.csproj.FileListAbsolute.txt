@@ -1,0 +1,1 @@
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\x86\Debug\LockScreen.exe.config

@@ -1,0 +1,8 @@
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\x64\Debug\LockScreen.exe.config
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\x64\Debug\LockScreen.exe
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\x64\Debug\LockScreen.pdb
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\x64\Debug\WindowsFormsApplication1.Form1.resources
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\x64\Debug\LockScreen.Properties.Resources.resources
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\x64\Debug\LockScreen.csproj.GenerateResource.Cache
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\x64\Debug\LockScreen.exe
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\x64\Debug\LockScreen.pdb
