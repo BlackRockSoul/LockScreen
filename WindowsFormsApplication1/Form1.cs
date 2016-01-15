@@ -39,13 +39,13 @@ namespace WindowsFormsApplication1
 
             while (this.IsHandleCreated)
             {
-                Thread.Sleep(200);
+                Thread.Sleep(100);
 
                 short res1 = GetAsyncKeyState(MOD_SHIFT);
 
                 if (res1 != 0)
                 {
-                    Thread.Sleep(200);
+                    Thread.Sleep(100);
                     short res2 = GetAsyncKeyState(MOD_ALT);
                     short res3 = GetAsyncKeyState(MOD_F9);
                     if (res2 != 0 && res3 != 0)
