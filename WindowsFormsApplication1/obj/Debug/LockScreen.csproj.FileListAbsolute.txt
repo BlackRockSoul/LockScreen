@@ -6,3 +6,4 @@ D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.Properti
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.csproj.GenerateResource.Cache
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.exe
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.pdb
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.csprojResolveAssemblyReference.cache

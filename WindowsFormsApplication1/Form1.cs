@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using LockScreen.Properties;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+
 
         public const int MOD_ALT = 0x12;
         public const int MOD_SHIFT = 0x10;
@@ -29,48 +23,45 @@ namespace WindowsFormsApplication1
         bool[] Showed = new bool[Screen.AllScreens.Length];
         Form[] forms;
         int CursX1, CursX2, CursY1, CursY2;
-        int time, TimeBtn;
+        int time;
         Screen[] sc = Screen.AllScreens;
+
 
         public Form1()
         {
             InitializeComponent();
-            MethodInvoker mi = new MethodInvoker(WaitKey);
-            mi.BeginInvoke(null, null);
         }
+
 
         private void WaitKey()
         {
+
+
             while (this.IsHandleCreated)
             {
-                short res1 = GetAsyncKeyState(MOD_SHIFT);
-                short res2 = GetAsyncKeyState(MOD_ALT);
-                short res3 = GetAsyncKeyState(MOD_F9);
-                if (res1 != 0 && res2 != 0 && res3 != 0 && TimeBtn != 1)
-                {
-                    button1.Invoke(new MethodInvoker(delegate ()
-                    {
-                        button1.PerformClick(); 
-                        timer2.Enabled = true;
-                    }));
-                    TimeBtn = 1;
-                    
-                }
-            }
-        }
+                Thread.Sleep(200);
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (TimeBtn == 1)
-            {
-                TimeBtn = 0;
-                timer2.Enabled = false;
+                short res1 = GetAsyncKeyState(MOD_SHIFT);
+
+                if (res1 != 0)
+                {
+                    Thread.Sleep(200);
+                    short res2 = GetAsyncKeyState(MOD_ALT);
+                    short res3 = GetAsyncKeyState(MOD_F9);
+                    if (res2 != 0 && res3 != 0)
+                    {
+                        button1.Invoke(new MethodInvoker(delegate ()
+                        {
+                            button1.PerformClick();
+                        }));
+                    }
+                }
             }
         }
 
         public void HideScreen()
         {
-            if (checkedListBox1.CheckedItems.Count != 0)// && checkBox1.Checked == true)
+            if (checkedListBox1.CheckedItems.Count != 0)
             {
                 Locked = true;
 
@@ -142,6 +133,10 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            MethodInvoker mi = new MethodInvoker(WaitKey);
+            mi.BeginInvoke(null, null);
+
             checkedListBox1.Items.Clear();
             for (int i = 1; i <= Screen.AllScreens.Length; i++)
             {
@@ -164,6 +159,10 @@ namespace WindowsFormsApplication1
             {
                 base.OnClosing(e);
                 e.Cancel = true;
+            }
+            else
+            {
+
             }
         }
 
