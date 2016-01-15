@@ -1,0 +1,203 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using LockScreen.Properties;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+
+        public const int MOD_ALT = 0x12;
+        public const int MOD_SHIFT = 0x10;
+        public const int MOD_F9 = 0x78;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        internal static extern short GetAsyncKeyState(int vkey);
+
+
+        bool Locked, fi;
+        bool[] CB = new bool[Screen.AllScreens.Length];
+        bool[] Showed = new bool[Screen.AllScreens.Length];
+        Form[] forms;
+        int CursX1, CursX2, CursY1, CursY2;
+        int time, TimeBtn;
+        Screen[] sc = Screen.AllScreens;
+
+        public Form1()
+        {
+            InitializeComponent();
+            MethodInvoker mi = new MethodInvoker(WaitKey);
+            mi.BeginInvoke(null, null);
+        }
+
+        private void WaitKey()
+        {
+            while (this.IsHandleCreated)
+            {
+                short res1 = GetAsyncKeyState(MOD_SHIFT);
+                short res2 = GetAsyncKeyState(MOD_ALT);
+                short res3 = GetAsyncKeyState(MOD_F9);
+                if (res1 != 0 && res2 != 0 && res3 != 0 && TimeBtn != 1)
+                {
+                    button1.Invoke(new MethodInvoker(delegate ()
+                    {
+                        button1.PerformClick(); 
+                        timer2.Enabled = true;
+                    }));
+                    TimeBtn = 1;
+                    
+                }
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (TimeBtn == 1)
+            {
+                TimeBtn = 0;
+                timer2.Enabled = false;
+            }
+        }
+
+        public void HideScreen()
+        {
+            if (checkedListBox1.CheckedItems.Count != 0)// && checkBox1.Checked == true)
+            {
+                Locked = true;
+
+                forms = new Form[Screen.AllScreens.Length];
+                for (int i = 0; i < Screen.AllScreens.Length; i++)
+                {
+                    if (!CB[i] & checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        forms[i] = new Form();
+                        Showed[i] = true;
+                        forms[i].BackColor = System.Drawing.Color.Black;
+                        forms[i].FormBorderStyle = FormBorderStyle.None;
+                        forms[i].Show();
+                        forms[i].Location = sc[i].Bounds.Location;
+                        forms[i].Width = sc[i].Bounds.Width;
+                        forms[i].Height = sc[i].Bounds.Height;
+                        forms[i].TopMost = true;
+                        forms[i].FormClosing += Form1_FormClosing;
+                        forms[i].BringToFront();
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!Locked)
+            {
+                HideScreen();
+                time = 0;
+            }
+            else
+            {
+                Locked = false;
+                for (int i = 0; i <= Screen.AllScreens.Length - 1; i++)
+                {
+                    if (Showed[i])
+                    {
+                        Showed[i] = false;
+                        forms[i].Close();
+                        BringToFront();
+                    }
+                }
+            }
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Settings.Default.Checkboxes = "";
+            for (int i = 1; i <= Screen.AllScreens.Length; i++)
+            {
+                if (checkedListBox1.GetItemChecked(i - 1))
+                {
+
+                    Settings.Default.Checkboxes += "1";
+                }
+                else
+                    Settings.Default.Checkboxes += "0";
+            }
+            Settings.Default.Save();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveBtn.PerformClick();
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            checkedListBox1.Items.Clear();
+            for (int i = 1; i <= Screen.AllScreens.Length; i++)
+            {
+                Showed[i - 1] = false;
+                checkedListBox1.Items.Add("Монитор " + i);
+            }
+            for (int i = 1; i <= Screen.AllScreens.Length; i++)
+            {
+                string sub = Settings.Default.Checkboxes.Substring(i - 1, 1);
+                if (sub == "1")
+                {
+                    checkedListBox1.SetItemChecked(i - 1, true);
+                }
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Locked)
+            {
+                base.OnClosing(e);
+                e.Cancel = true;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!Locked)
+            {
+                time++;
+                if (!fi)
+                {
+                    fi = true;
+                    CursX1 = Cursor.Position.X;
+                    CursY1 = Cursor.Position.Y;
+                }
+                else
+                {
+                    fi = false;
+                    CursX2 = Cursor.Position.X;
+                    CursY2 = Cursor.Position.Y;
+                    if (CursX1 == CursX2)
+                    {
+                        if (time == 10 && checkBox1.Checked != true)
+                        {
+                            button1.PerformClick();
+                            checkBox1.Checked = true;
+                        }
+                        else if (time >= 3 && checkBox1.Checked)
+                        {
+                            button1.PerformClick();
+                            time = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
