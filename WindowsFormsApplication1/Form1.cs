@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using LockScreen.Properties;
 using System.Threading;
 using AutoUpdaterDotNET;
+using System.IO;
+using System.Net;
 
 namespace WindowsFormsApplication1
 {
@@ -31,6 +33,18 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+
+            if (!(File.Exists("AutoUpdater.NET.dll")))
+            {
+                using (var client = new WebClient())
+                {
+                    client.Headers.Add("user-agent", "Anything");
+                    client.DownloadFile(
+                        "https://raw.githubusercontent.com/BlackRockSoul/LockScreen/bf4363f35c18152816effb9a14c06b0d03157a9a/WindowsFormsApplication1/bin/Release/AutoUpdater.NET.dll",
+                        "AutoUpdater.NET");
+                    File.Move("AutoUpdater.NET", "AutoUpdater.NET" + ".dll");//само переименование
+                }
+            }
         }
 
 
@@ -134,6 +148,9 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+
+
             AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Update.xml");
             
             checkedListBox1.Items.Clear();
