@@ -71,6 +71,9 @@
     <ApplicationIcon>Graphicloads-Colorful-Long-Shadow-Lock.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoUpdater.NET">
+      <HintPath>..\..\AutoUpdater.NET 1.3.1\Signed\AutoUpdater.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -121,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Graphicloads-Colorful-Long-Shadow-Lock.ico" />
+    <Content Include="Update.xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -133,6 +137,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

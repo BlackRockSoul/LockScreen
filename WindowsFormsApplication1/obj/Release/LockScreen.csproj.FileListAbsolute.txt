@@ -16,3 +16,15 @@ D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Release\LockScreen.Proper
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Release\LockScreen.csproj.GenerateResource.Cache
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Release\LockScreen.exe
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Release\LockScreen.pdb
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\AutoUpdater.NET.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\AutoUpdater.NET.pdb
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\AutoUpdater.NET.xml
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\da\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\de\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\es\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\fr\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\it-IT\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\nl\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\pl\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\ru\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\sv\AutoUpdater.NET.resources.dll

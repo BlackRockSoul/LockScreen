@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using LockScreen.Properties;
 using System.Threading;
+using AutoUpdaterDotNET;
 
 namespace WindowsFormsApplication1
 {
@@ -133,6 +134,8 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/bin/Release/LockScreen.exe");
+
 
             MethodInvoker mi = new MethodInvoker(WaitKey);
             mi.BeginInvoke(null, null);
