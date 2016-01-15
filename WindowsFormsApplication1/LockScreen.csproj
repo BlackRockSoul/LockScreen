@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Graphicloads-Colorful-Long-Shadow-Lock.ico" />
+    <Content Include="HTMLPage1.html" />
     <Content Include="Update.xml" />
   </ItemGroup>
   <ItemGroup>
