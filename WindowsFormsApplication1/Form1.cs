@@ -7,6 +7,11 @@ using AutoUpdaterDotNET;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Globalization;
 
 namespace WindowsFormsApplication1
 {
@@ -38,6 +43,10 @@ namespace WindowsFormsApplication1
         Screen[] sc = Screen.AllScreens;
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TOOLWINDOW = 0x00000080;
+        const string filePath = "settings.txt";
+        string[] Setting_file = new string[100];    //File.ReadAllLines(filePath, Encoding.UTF8);
+
+        Random rand = new Random();
         //Описания переменных. Привести в порядок//
 
         public Form1()
@@ -75,9 +84,9 @@ namespace WindowsFormsApplication1
                     short res3 = GetAsyncKeyState(MOD_F9);
                     if (res2 != 0 && res3 != 0)
                     {
-                        button1.Invoke(new MethodInvoker(delegate ()
+                        LockBtn.Invoke(new MethodInvoker(delegate ()
                         {
-                            button1.PerformClick(); //Имитация нажатия на копку "Заблокировать"
+                            LockBtn.PerformClick(); //Имитация нажатия на копку "Заблокировать"
                         }));
                     }
                 }
@@ -89,14 +98,14 @@ namespace WindowsFormsApplication1
         //Процедура блокирования экрана. Сделать как-нибудь менее криво...//
         public void HideScreen()
         {
-            if (checkedListBox1.CheckedItems.Count != 0) //Проверка на выбор хотя бы одного пункта из меню
+            if (MonitorList.CheckedItems.Count != 0) //Проверка на выбор хотя бы одного пункта из меню
             {
                 Locked = true;
 
                 forms = new Form[Screen.AllScreens.Length]; //Объявления массива с формами
                 for (int i = 0; i < Screen.AllScreens.Length; i++) //Генерация форм. Пофиксить, блять! Нахуй тут формы?!
                 {
-                    if (!CB[i] & checkedListBox1.GetItemCheckState(i) == CheckState.Checked)
+                    if (!CB[i] & MonitorList.GetItemCheckState(i) == CheckState.Checked)
                     {                                               //Создание и настройка формы
                         forms[i] = new Form();
                         Showed[i] = true;
@@ -148,48 +157,90 @@ namespace WindowsFormsApplication1
             }
         }
 
-
-        private void button2_Click(object sender, EventArgs e) //Кнопка Save. Стоило бы её убрать за ненадобностью
+        private void AddTask_Click(object sender, EventArgs e)
         {
-            Settings.Default.Checkboxes = "";
-            for (int i = 1; i <= Screen.AllScreens.Length; i++) //Оооо с этим я долго ебался. Сохранение галочек в настройки
-            {
-                if (checkedListBox1.GetItemChecked(i - 1))
-                {
-
-                    Settings.Default.Checkboxes += "1";
-                }
-                else
-                    Settings.Default.Checkboxes += "0";
-            }
-            Settings.Default.Save();
+            TaskList.Items.Add("Task" + rand.Next(1, 100));
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            SaveBtn.PerformClick();  //Обращение к кнопке Save. Можно перетащить всё сюда и выпилить кнопку
+            string Checkboxes = string.Empty;
+            string str = string.Empty;
+
+            for (int i = 1; i <= Screen.AllScreens.Length; i++)
+            {
+                if (MonitorList.GetItemChecked(i - 1))
+                {
+
+                    Checkboxes += "1";
+                }
+                else
+                    Checkboxes += "0";
+            }
+
+            using (System.IO.StreamReader reader = System.IO.File.OpenText(filePath))
+            {
+                str = reader.ReadToEnd();
+            }
+            if (Checkboxes != Setting_file[0])
+            {
+                str = str.Remove(0, Setting_file[0].Length).Insert(0, Checkboxes);
+            }
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
+            {
+                file.Write(str);
+            }
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
+            AutoUpdater.CurrentCulture = CultureInfo.CreateSpecificCulture("ru-RU");
             AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Update.xml");
-            //Всего лишь обновление с помощью какой-то залупы.. Переписать этот апдейтер
 
-            label1.Text = "Версия " + ProductVersion.ToString();
+            VersionLabel.Text = "Версия " + ProductVersion.ToString();
 
-            checkedListBox1.Items.Clear();
+            MonitorList.Items.Clear();
             for (int i = 1; i <= Screen.AllScreens.Length; i++) //Подгрузка мониторов в список
             {
                 Showed[i - 1] = false;
-                checkedListBox1.Items.Add("Монитор " + i);
+                MonitorList.Items.Add("Монитор " + i);
             }
-            for (int i = 1; i <= Screen.AllScreens.Length; i++) //Добавление для них чекбоксов из настроек
+
+            if (!(File.Exists(filePath)))
             {
-                string sub = Settings.Default.Checkboxes.Substring(i - 1, 1);
-                if (sub == "1")
+                using (StreamWriter WriteFile = new StreamWriter(filePath))
                 {
-                    checkedListBox1.SetItemChecked(i - 1, true);
+                    string cur = "";
+                    for (int i = 1; i <= Screen.AllScreens.Length; i++)
+                    {
+                        cur += "0";
+                    }
+                    WriteFile.Write(cur);
+                    TaskList.Items.Clear();
+                }
+            }
+
+                FileInfo file = new FileInfo(filePath);
+            using (StreamReader ReadFile = File.OpenText(filePath))
+            {
+                Setting_file = File.ReadAllLines(filePath, Encoding.UTF8);
+            }
+            if (file.Length > 1)
+            {
+                for (int i = 1; i <= Screen.AllScreens.Length; i++) //Добавление для них чекбоксов из настроек
+                {
+                    string sub = Setting_file[0].Substring(i - 1, 1);
+                    if (sub == "1")
+                    {
+                        MonitorList.SetItemChecked(i - 1, true);
+                    }
+                }
+                TaskList.Items.Clear();
+                for (int i = 2; i < Setting_file.Length; i++)
+                {
+                    TaskList.Items.Add(Setting_file[i]);
                 }
             }
 
@@ -233,15 +284,15 @@ namespace WindowsFormsApplication1
                     CursY2 = Cursor.Position.Y;
                     if (CursX1 == CursX2) //Если мышь не двигалась, то либо ждем дальше, либо.. 
                     {
-                        if (time == 10 && checkBox1.Checked != true) //..после 10 минут простоя самостоятельно врубаем блокировку..
+                        if (time == 10 && AutoLock.Checked != true) //..после 10 минут простоя самостоятельно врубаем блокировку..
                         {
-                            checkBox1.Checked = true;
-                            button1.PerformClick();                  //..иии самостоятельно всё нахуй блокируем..                            
+                            AutoLock.Checked = true;
+                            LockBtn.PerformClick();                  //..иии самостоятельно всё нахуй блокируем..                            
                             time = 0;
                         }
-                        else if (time >= 3 && checkBox1.Checked)     //..Есть ещё один вариант. Галка стоит, мы просто..
+                        else if (time >= 3 && AutoLock.Checked)     //..Есть ещё один вариант. Галка стоит, мы просто..
                         {                                            //..блокируем и сбрасываем таймер
-                            button1.PerformClick();
+                            LockBtn.PerformClick();
                             time = 0;
                         }
                     }

@@ -30,95 +30,135 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.SaveBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LockBtn = new System.Windows.Forms.Button();
+            this.MonitorList = new System.Windows.Forms.CheckedListBox();
+            this.LockTimer = new System.Windows.Forms.Timer(this.components);
+            this.AutoLock = new System.Windows.Forms.CheckBox();
+            this.VersionLabel = new System.Windows.Forms.Label();
+            this.SettingsBox = new System.Windows.Forms.GroupBox();
+            this.TaskBox = new System.Windows.Forms.GroupBox();
+            this.TaskList = new System.Windows.Forms.ListBox();
+            this.AddTask = new System.Windows.Forms.Button();
+            this.SettingsBox.SuspendLayout();
+            this.TaskBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // LockBtn
             // 
-            this.button1.Location = new System.Drawing.Point(14, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Заблокировать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LockBtn.Location = new System.Drawing.Point(6, 19);
+            this.LockBtn.Name = "LockBtn";
+            this.LockBtn.Size = new System.Drawing.Size(110, 30);
+            this.LockBtn.TabIndex = 150;
+            this.LockBtn.TabStop = false;
+            this.LockBtn.Text = "Заблокировать";
+            this.LockBtn.UseVisualStyleBackColor = true;
+            this.LockBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // checkedListBox1
+            // MonitorList
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.HorizontalScrollbar = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.MonitorList.FormattingEnabled = true;
+            this.MonitorList.HorizontalScrollbar = true;
+            this.MonitorList.Items.AddRange(new object[] {
             "Монитор 1",
             "Монитор 2",
             "Монитор 3"});
-            this.checkedListBox1.Location = new System.Drawing.Point(13, 69);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(110, 64);
-            this.checkedListBox1.TabIndex = 1;
+            this.MonitorList.Location = new System.Drawing.Point(6, 78);
+            this.MonitorList.Name = "MonitorList";
+            this.MonitorList.Size = new System.Drawing.Size(110, 64);
+            this.MonitorList.TabIndex = 1;
             // 
-            // timer1
+            // LockTimer
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.LockTimer.Enabled = true;
+            this.LockTimer.Interval = 60000;
+            this.LockTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // checkBox1
+            // AutoLock
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(14, 46);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Автоотключение";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.AutoLock.AutoSize = true;
+            this.AutoLock.Checked = true;
+            this.AutoLock.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoLock.Location = new System.Drawing.Point(6, 55);
+            this.AutoLock.Name = "AutoLock";
+            this.AutoLock.Size = new System.Drawing.Size(110, 17);
+            this.AutoLock.TabIndex = 2;
+            this.AutoLock.Text = "Автоотключение";
+            this.AutoLock.UseVisualStyleBackColor = true;
             // 
-            // SaveBtn
+            // VersionLabel
             // 
-            this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveBtn.Location = new System.Drawing.Point(88, 135);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(35, 18);
-            this.SaveBtn.TabIndex = 3;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.UseVisualStyleBackColor = true;
-            this.SaveBtn.Click += new System.EventHandler(this.button2_Click);
+            this.VersionLabel.AutoSize = true;
+            this.VersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.VersionLabel.Location = new System.Drawing.Point(479, 278);
+            this.VersionLabel.Name = "VersionLabel";
+            this.VersionLabel.Size = new System.Drawing.Size(54, 9);
+            this.VersionLabel.TabIndex = 4;
+            this.VersionLabel.Text = "Версия 0.0.0.0";
             // 
-            // label1
+            // SettingsBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(11, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 9);
-            this.label1.TabIndex = 4;
+            this.SettingsBox.Controls.Add(this.TaskBox);
+            this.SettingsBox.Controls.Add(this.LockBtn);
+            this.SettingsBox.Controls.Add(this.MonitorList);
+            this.SettingsBox.Controls.Add(this.AutoLock);
+            this.SettingsBox.Location = new System.Drawing.Point(12, 12);
+            this.SettingsBox.Name = "SettingsBox";
+            this.SettingsBox.Size = new System.Drawing.Size(548, 263);
+            this.SettingsBox.TabIndex = 5;
+            this.SettingsBox.TabStop = false;
+            this.SettingsBox.Text = "Настройки";
+            // 
+            // TaskBox
+            // 
+            this.TaskBox.Controls.Add(this.AddTask);
+            this.TaskBox.Controls.Add(this.TaskList);
+            this.TaskBox.Location = new System.Drawing.Point(122, 19);
+            this.TaskBox.Name = "TaskBox";
+            this.TaskBox.Size = new System.Drawing.Size(420, 238);
+            this.TaskBox.TabIndex = 5;
+            this.TaskBox.TabStop = false;
+            this.TaskBox.Text = "Задачи";
+            // 
+            // TaskList
+            // 
+            this.TaskList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.TaskList.FormattingEnabled = true;
+            this.TaskList.HorizontalScrollbar = true;
+            this.TaskList.Location = new System.Drawing.Point(6, 19);
+            this.TaskList.Name = "TaskList";
+            this.TaskList.Size = new System.Drawing.Size(335, 212);
+            this.TaskList.TabIndex = 0;
+            this.TaskList.TabStop = false;
+            // 
+            // AddTask
+            // 
+            this.AddTask.Location = new System.Drawing.Point(347, 19);
+            this.AddTask.Name = "AddTask";
+            this.AddTask.Size = new System.Drawing.Size(67, 23);
+            this.AddTask.TabIndex = 1;
+            this.AddTask.Text = "Добавить";
+            this.AddTask.UseVisualStyleBackColor = true;
+            this.AddTask.Click += new System.EventHandler(this.AddTask_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(136, 158);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.SaveBtn);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.ClientSize = new System.Drawing.Size(572, 293);
+            this.Controls.Add(this.SettingsBox);
+            this.Controls.Add(this.VersionLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LockScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SettingsBox.ResumeLayout(false);
+            this.SettingsBox.PerformLayout();
+            this.TaskBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,14 +166,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Timer timer1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button SaveBtn;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button LockBtn;
+        private System.Windows.Forms.CheckedListBox MonitorList;
+        private System.Windows.Forms.Timer LockTimer;
+        private System.Windows.Forms.CheckBox AutoLock;
+        private System.Windows.Forms.Label VersionLabel;
+        private System.Windows.Forms.GroupBox SettingsBox;
+        private System.Windows.Forms.ListBox TaskList;
+        private System.Windows.Forms.GroupBox TaskBox;
+        private System.Windows.Forms.Button AddTask;
     }
 }
 
