@@ -6,6 +6,7 @@ using System.Threading;
 using AutoUpdaterDotNET;
 using System.IO;
 using System.Net;
+using System.Reflection;
 
 namespace WindowsFormsApplication1
 {
@@ -158,6 +159,7 @@ namespace WindowsFormsApplication1
             AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Update.xml");
             //Всего лишь обновление с помощью какой-то залупы.. Переписать этот апдейтер
 
+            label1.Text = "Версия " + ProductVersion.ToString();
 
             checkedListBox1.Items.Clear();
             for (int i = 1; i <= Screen.AllScreens.Length; i++) //Подгрузка мониторов в список
