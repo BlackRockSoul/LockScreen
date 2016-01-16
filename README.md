@@ -4,5 +4,5 @@
 Возможность блокировать несколько из них.
 
 ## Скачать
-[LockScreen](https://github.com/BlackRockSoul/LockScreen/blob/master/WindowsFormsApplication1/bin/Release/LockScreen.exe?raw=true)
+[LockScreen](https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/Updater/Output/setup.exe)
 
