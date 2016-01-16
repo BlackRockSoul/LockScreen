@@ -59,5 +59,15 @@ namespace LockScreen.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon Graphicloads_Colorful_Long_Shadow_Lock {
+            get {
+                object obj = ResourceManager.GetObject("Graphicloads_Colorful_Long_Shadow_Lock", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }
