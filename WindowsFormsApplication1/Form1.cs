@@ -22,6 +22,12 @@ namespace WindowsFormsApplication1
         [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         internal static extern short GetAsyncKeyState(int vkey);
 
+        [DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr window, int index, int value);
+
+        [DllImport("user32.dll")]
+        private static extern int GetWindowLong(IntPtr window, int index);
+
         //Описания переменных. Привести в порядок//
         bool Locked, fi;
         bool[] CB = new bool[Screen.AllScreens.Length];
@@ -30,6 +36,8 @@ namespace WindowsFormsApplication1
         int CursX1, CursX2, CursY1, CursY2;
         int time;
         Screen[] sc = Screen.AllScreens;
+        private const int GWL_EXSTYLE = -20;
+        private const int WS_EX_TOOLWINDOW = 0x00000080;
         //Описания переменных. Привести в порядок//
 
         public Form1()
@@ -94,6 +102,7 @@ namespace WindowsFormsApplication1
                         Showed[i] = true;
                         forms[i].BackColor = System.Drawing.Color.Black;
                         forms[i].FormBorderStyle = FormBorderStyle.None;
+                        forms[i].ShowInTaskbar = false;
                         forms[i].Show();
                         forms[i].Location = sc[i].Bounds.Location; //Иногда глючит. Хуй знает почему
                         forms[i].Width = sc[i].Bounds.Width;
@@ -101,6 +110,7 @@ namespace WindowsFormsApplication1
                         forms[i].TopMost = true;
                         forms[i].FormClosing += Form1_FormClosing;
                         forms[i].BringToFront();
+                        HideFromAltTab(forms[i].Handle);
                         forms[i].Location = sc[i].Bounds.Location; //На всякий случай. 
                                                                    //Потом понять что работает, а что нет и выпилить лишнее
                     }
@@ -108,6 +118,12 @@ namespace WindowsFormsApplication1
             }
         }
         //Процедура блокирования экрана. Сделать как-нибудь менее криво...//
+
+        public static void HideFromAltTab(IntPtr Handle)
+        {
+            SetWindowLong(Handle, GWL_EXSTYLE, GetWindowLong(Handle,
+                GWL_EXSTYLE) | WS_EX_TOOLWINDOW);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -128,6 +144,7 @@ namespace WindowsFormsApplication1
                         BringToFront(); //Не уверен что это нужно
                     }
                 }
+
             }
         }
 
