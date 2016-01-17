@@ -19,3 +19,4 @@ D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\nl\AutoUpdater.NET.
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\pl\AutoUpdater.NET.resources.dll
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\ru\AutoUpdater.NET.resources.dll
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\sv\AutoUpdater.NET.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.AddTaskForm.resources

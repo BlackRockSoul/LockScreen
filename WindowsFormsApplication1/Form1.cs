@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using LockScreen.Properties;
 using System.Threading;
 using AutoUpdaterDotNET;
 using System.IO;
 using System.Net;
-using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.Linq;
 using System.Globalization;
 
 namespace WindowsFormsApplication1
@@ -159,11 +154,20 @@ namespace WindowsFormsApplication1
 
         private void AddTask_Click(object sender, EventArgs e)
         {
-            TaskList.Items.Add("Task" + rand.Next(1, 100));
+            Form AddTaskForm = new LockScreen.AddTaskForm();
+            AddTaskForm.Owner = this;
+            AddTaskForm.ShowDialog();
+        }
+
+        public void ChangeText(string text)
+        {
+            //TaskList.Items.Add(text);
+            MessageBox.Show(text);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            FileInfo fileinf = new FileInfo(filePath);
             string Checkboxes = string.Empty;
             string str = string.Empty;
 
@@ -178,18 +182,14 @@ namespace WindowsFormsApplication1
                     Checkboxes += "0";
             }
 
-            using (System.IO.StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                str = reader.ReadToEnd();
-            }
-            if (Checkboxes != Setting_file[0])
-            {
-                str = str.Remove(0, Setting_file[0].Length).Insert(0, Checkboxes);
-            }
-
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
             {
-                file.Write(str);
+                file.WriteLine(Checkboxes);
+                file.WriteLine("");
+                for (int i = 0; i <= TaskList.Items.Count -1; i++)
+                {
+                    file.WriteLine(TaskList.Items[i].ToString());
+                }
             }
         }
 
@@ -222,7 +222,7 @@ namespace WindowsFormsApplication1
                 }
             }
 
-                FileInfo file = new FileInfo(filePath);
+            FileInfo file = new FileInfo(filePath);
             using (StreamReader ReadFile = File.OpenText(filePath))
             {
                 Setting_file = File.ReadAllLines(filePath, Encoding.UTF8);
@@ -237,10 +237,25 @@ namespace WindowsFormsApplication1
                         MonitorList.SetItemChecked(i - 1, true);
                     }
                 }
+
+
                 TaskList.Items.Clear();
+
                 for (int i = 2; i < Setting_file.Length; i++)
                 {
                     TaskList.Items.Add(Setting_file[i]);
+                }
+            }
+            else
+            {
+                using (StreamWriter WriteFile = new StreamWriter(filePath))
+                {
+                    string cur = "";
+                    for (int i = 1; i <= Screen.AllScreens.Length; i++)
+                    {
+                        cur += "0";
+                    }
+                    WriteFile.Write(cur);
                 }
             }
 

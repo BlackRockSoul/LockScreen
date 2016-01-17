@@ -37,8 +37,8 @@
             this.VersionLabel = new System.Windows.Forms.Label();
             this.SettingsBox = new System.Windows.Forms.GroupBox();
             this.TaskBox = new System.Windows.Forms.GroupBox();
-            this.TaskList = new System.Windows.Forms.ListBox();
             this.AddTask = new System.Windows.Forms.Button();
+            this.TaskList = new System.Windows.Forms.ListBox();
             this.SettingsBox.SuspendLayout();
             this.TaskBox.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +119,16 @@
             this.TaskBox.TabStop = false;
             this.TaskBox.Text = "Задачи";
             // 
+            // AddTask
+            // 
+            this.AddTask.Location = new System.Drawing.Point(347, 19);
+            this.AddTask.Name = "AddTask";
+            this.AddTask.Size = new System.Drawing.Size(67, 23);
+            this.AddTask.TabIndex = 1;
+            this.AddTask.Text = "Добавить";
+            this.AddTask.UseVisualStyleBackColor = true;
+            this.AddTask.Click += new System.EventHandler(this.AddTask_Click);
+            // 
             // TaskList
             // 
             this.TaskList.Cursor = System.Windows.Forms.Cursors.Default;
@@ -129,16 +139,6 @@
             this.TaskList.Size = new System.Drawing.Size(335, 212);
             this.TaskList.TabIndex = 0;
             this.TaskList.TabStop = false;
-            // 
-            // AddTask
-            // 
-            this.AddTask.Location = new System.Drawing.Point(347, 19);
-            this.AddTask.Name = "AddTask";
-            this.AddTask.Size = new System.Drawing.Size(67, 23);
-            this.AddTask.TabIndex = 1;
-            this.AddTask.Text = "Добавить";
-            this.AddTask.UseVisualStyleBackColor = true;
-            this.AddTask.Click += new System.EventHandler(this.AddTask_Click);
             // 
             // Form1
             // 
@@ -172,9 +172,9 @@
         private System.Windows.Forms.CheckBox AutoLock;
         private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.GroupBox SettingsBox;
-        private System.Windows.Forms.ListBox TaskList;
         private System.Windows.Forms.GroupBox TaskBox;
         private System.Windows.Forms.Button AddTask;
+        public System.Windows.Forms.ListBox TaskList;
     }
 }
 
