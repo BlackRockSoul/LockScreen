@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
         const string fileName = "LockScreen\\settings.ini";
         string filePath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), fileName);
-        string[] Setting_file = new string[100];    //File.ReadAllLines(filePath, Encoding.UTF8);
+        string[] Setting_file = new string[500];    //File.ReadAllLines(filePath, Encoding.UTF8);
 
         Random rand = new Random();
         //Описания переменных. Привести в порядок//
@@ -237,7 +237,7 @@ namespace WindowsFormsApplication1
             {
                 Setting_file = File.ReadAllLines(filePath, Encoding.UTF8);
             }
-            if (file.Length > 1)
+            if (file.Length > 1 && Setting_file[0].Length == Screen.AllScreens.Length)
             {
                 for (int i = 1; i <= Screen.AllScreens.Length; i++) //Добавление для них чекбоксов из настроек
                 {
