@@ -7,10 +7,11 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Globalization;
+using MetroFramework.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MetroForm
     {
 
         // Объявление Горячих клавиш. Добавить выбор
@@ -63,7 +64,7 @@ namespace WindowsFormsApplication1
             //Подгрузка DLL'ки для автообновления//
         }
 
-        //Процедура регистрации горячих клавиш//
+        //Ебучая процедура регистрации горячих клавиш//
         private void WaitKey()
         {
             while (this.IsHandleCreated)
@@ -82,12 +83,13 @@ namespace WindowsFormsApplication1
                         LockBtn.Invoke(new MethodInvoker(delegate ()
                         {
                             LockBtn.PerformClick(); //Имитация нажатия на копку "Заблокировать"
+                            Thread.Sleep(200);
                         }));
                     }
                 }
             }
         }
-        //Процедура регистрации горячих клавиш//
+        //Ебучая процедура регистрации горячих клавиш//
 
 
         //Процедура блокирования экрана. Сделать как-нибудь менее криво...//
@@ -104,19 +106,19 @@ namespace WindowsFormsApplication1
                     {                                               //Создание и настройка формы
                         forms[i] = new Form();
                         Showed[i] = true;
+                        forms[i].SetBounds(-100, -100, 10, 10);
                         forms[i].BackColor = System.Drawing.Color.Black;
                         forms[i].FormBorderStyle = FormBorderStyle.None;
                         forms[i].ShowInTaskbar = false;
                         forms[i].Show();
-                        forms[i].Location = sc[i].Bounds.Location; //Иногда глючит. Хуй знает почему
+                        forms[i].Location = Screen.AllScreens[i].WorkingArea.Location; //Как ни странно, так работает лучше
                         forms[i].Width = sc[i].Bounds.Width;
                         forms[i].Height = sc[i].Bounds.Height;
                         forms[i].TopMost = true;
                         forms[i].FormClosing += Form1_FormClosing;
                         forms[i].BringToFront();
+                        
                         HideFromAltTab(forms[i].Handle);
-                        forms[i].Location = sc[i].Bounds.Location; //На всякий случай. 
-                                                                   //Потом понять что работает, а что нет и выпилить лишнее
                     }
                 }
             }
@@ -135,6 +137,7 @@ namespace WindowsFormsApplication1
             {
                 HideScreen();
                 time = 0; //Сброс времени для timer1
+                BringToFront();
             }
             else
             {
@@ -145,7 +148,7 @@ namespace WindowsFormsApplication1
                     {
                         Showed[i] = false;
                         forms[i].Close();
-                        BringToFront(); //Не уверен что это нужно
+                        BringToFront();
                     }
                 }
 
@@ -196,6 +199,9 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            this.FormBorderStyle = FormBorderStyle.None;
+
             AutoUpdater.CurrentCulture = CultureInfo.CreateSpecificCulture("ru-RU");
             AutoUpdater.Start("https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/Update.xml");
 
@@ -262,6 +268,8 @@ namespace WindowsFormsApplication1
 
             MethodInvoker mi = new MethodInvoker(WaitKey); //Включение регистрации горячих клавиш
             mi.BeginInvoke(null, null);                    //Включение регистрации горячих клавиш
+
+            BringToFront();
 
 
         }

@@ -45,27 +45,26 @@
             // 
             // LockBtn
             // 
-            this.LockBtn.Location = new System.Drawing.Point(6, 19);
+            this.LockBtn.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.LockBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.LockBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            resources.ApplyResources(this.LockBtn, "LockBtn");
             this.LockBtn.Name = "LockBtn";
-            this.LockBtn.Size = new System.Drawing.Size(110, 30);
-            this.LockBtn.TabIndex = 150;
             this.LockBtn.TabStop = false;
-            this.LockBtn.Text = "Заблокировать";
             this.LockBtn.UseVisualStyleBackColor = true;
             this.LockBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // MonitorList
             // 
+            this.MonitorList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MonitorList.CheckOnClick = true;
             this.MonitorList.FormattingEnabled = true;
-            this.MonitorList.HorizontalScrollbar = true;
+            resources.ApplyResources(this.MonitorList, "MonitorList");
             this.MonitorList.Items.AddRange(new object[] {
-            "Монитор 1",
-            "Монитор 2",
-            "Монитор 3"});
-            this.MonitorList.Location = new System.Drawing.Point(6, 78);
+            resources.GetString("MonitorList.Items"),
+            resources.GetString("MonitorList.Items1"),
+            resources.GetString("MonitorList.Items2")});
             this.MonitorList.Name = "MonitorList";
-            this.MonitorList.Size = new System.Drawing.Size(110, 64);
-            this.MonitorList.TabIndex = 1;
             // 
             // LockTimer
             // 
@@ -75,25 +74,16 @@
             // 
             // AutoLock
             // 
-            this.AutoLock.AutoSize = true;
+            resources.ApplyResources(this.AutoLock, "AutoLock");
             this.AutoLock.Checked = true;
             this.AutoLock.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AutoLock.Location = new System.Drawing.Point(6, 55);
             this.AutoLock.Name = "AutoLock";
-            this.AutoLock.Size = new System.Drawing.Size(110, 17);
-            this.AutoLock.TabIndex = 2;
-            this.AutoLock.Text = "Автоотключение";
             this.AutoLock.UseVisualStyleBackColor = true;
             // 
             // VersionLabel
             // 
-            this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.VersionLabel.Location = new System.Drawing.Point(479, 278);
+            resources.ApplyResources(this.VersionLabel, "VersionLabel");
             this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(54, 9);
-            this.VersionLabel.TabIndex = 4;
-            this.VersionLabel.Text = "Версия 0.0.0.0";
             // 
             // SettingsBox
             // 
@@ -101,58 +91,50 @@
             this.SettingsBox.Controls.Add(this.LockBtn);
             this.SettingsBox.Controls.Add(this.MonitorList);
             this.SettingsBox.Controls.Add(this.AutoLock);
-            this.SettingsBox.Location = new System.Drawing.Point(12, 12);
+            this.SettingsBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.SettingsBox, "SettingsBox");
             this.SettingsBox.Name = "SettingsBox";
-            this.SettingsBox.Size = new System.Drawing.Size(548, 263);
-            this.SettingsBox.TabIndex = 5;
             this.SettingsBox.TabStop = false;
-            this.SettingsBox.Text = "Настройки";
             // 
             // TaskBox
             // 
             this.TaskBox.Controls.Add(this.AddTask);
             this.TaskBox.Controls.Add(this.TaskList);
-            this.TaskBox.Location = new System.Drawing.Point(122, 19);
+            this.TaskBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            resources.ApplyResources(this.TaskBox, "TaskBox");
             this.TaskBox.Name = "TaskBox";
-            this.TaskBox.Size = new System.Drawing.Size(420, 238);
-            this.TaskBox.TabIndex = 5;
             this.TaskBox.TabStop = false;
-            this.TaskBox.Text = "Задачи";
             // 
             // AddTask
             // 
-            this.AddTask.Location = new System.Drawing.Point(347, 19);
+            this.AddTask.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.AddTask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AddTask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            resources.ApplyResources(this.AddTask, "AddTask");
             this.AddTask.Name = "AddTask";
-            this.AddTask.Size = new System.Drawing.Size(67, 23);
-            this.AddTask.TabIndex = 1;
-            this.AddTask.Text = "Добавить";
             this.AddTask.UseVisualStyleBackColor = true;
             this.AddTask.Click += new System.EventHandler(this.AddTask_Click);
             // 
             // TaskList
             // 
+            this.TaskList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TaskList.Cursor = System.Windows.Forms.Cursors.Default;
             this.TaskList.FormattingEnabled = true;
-            this.TaskList.HorizontalScrollbar = true;
-            this.TaskList.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.TaskList, "TaskList");
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(335, 212);
-            this.TaskList.TabIndex = 0;
             this.TaskList.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 293);
             this.Controls.Add(this.SettingsBox);
             this.Controls.Add(this.VersionLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LockScreen";
+            this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroFormShadowType.None;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTaskForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.MinutesUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.TaskComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.MinutesUpDown = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinutesUpDown)).BeginInit();
             this.SuspendLayout();
@@ -47,34 +48,54 @@
             this.groupBox1.Controls.Add(this.MinutesUpDown);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Location = new System.Drawing.Point(23, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 283);
+            this.groupBox1.Size = new System.Drawing.Size(295, 281);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Добавить задачу";
             // 
-            // label1
+            // TaskComboBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Через";
+            this.TaskComboBox.BackColor = System.Drawing.Color.LightCyan;
+            this.TaskComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TaskComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TaskComboBox.FormattingEnabled = true;
+            this.TaskComboBox.Items.AddRange(new object[] {
+            "Включить автоблокировку",
+            "Заблокировать монитор",
+            "Запустить программу",
+            "Отключить автоблокировку",
+            "Разблокировать"});
+            this.TaskComboBox.Location = new System.Drawing.Point(81, 62);
+            this.TaskComboBox.Name = "TaskComboBox";
+            this.TaskComboBox.Size = new System.Drawing.Size(180, 21);
+            this.TaskComboBox.Sorted = true;
+            this.TaskComboBox.TabIndex = 6;
             // 
-            // button1
+            // label3
             // 
-            this.button1.Location = new System.Drawing.Point(197, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Location = new System.Drawing.Point(6, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Выполнить: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Location = new System.Drawing.Point(93, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Минут";
             // 
             // MinutesUpDown
             // 
+            this.MinutesUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MinutesUpDown.Location = new System.Drawing.Point(51, 29);
             this.MinutesUpDown.Maximum = new decimal(new int[] {
             1000,
@@ -95,46 +116,45 @@
             0,
             0});
             // 
-            // label2
+            // button1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Минут";
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(197, 234);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 41);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Выполнить: ";
-            // 
-            // TaskComboBox
-            // 
-            this.TaskComboBox.FormattingEnabled = true;
-            this.TaskComboBox.Items.AddRange(new object[] {
-            "Lol",
-            "Lol1",
-            "Lol2",
-            "Lol3"});
-            this.TaskComboBox.Location = new System.Drawing.Point(81, 62);
-            this.TaskComboBox.Name = "TaskComboBox";
-            this.TaskComboBox.Size = new System.Drawing.Size(180, 21);
-            this.TaskComboBox.TabIndex = 6;
-            this.TaskComboBox.Text = "Lol";
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Через";
             // 
             // AddTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 307);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(341, 367);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddTaskForm";
-            this.Text = "AddTaskForm";
+            this.Resizable = false;
+            this.Style = MetroFramework.MetroColorStyle.Teal;
+            this.Text = "Добавить задачу";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinutesUpDown)).EndInit();

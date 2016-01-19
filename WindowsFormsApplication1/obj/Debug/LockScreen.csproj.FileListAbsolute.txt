@@ -20,3 +20,9 @@ D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\pl\AutoUpdater.NET.
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\ru\AutoUpdater.NET.resources.dll
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\sv\AutoUpdater.NET.resources.dll
 D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\LockScreen.AddTaskForm.resources
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\ru\LockScreen.resources.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\MetroFramework.Design.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\MetroFramework.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Debug\MetroFramework.Fonts.dll
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.ru.resources
+D:\Projects\C#\LockScreen\WindowsFormsApplication1\obj\Debug\ru\LockScreen.resources.dll
