@@ -36,6 +36,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\LockScreen.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\MetroFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

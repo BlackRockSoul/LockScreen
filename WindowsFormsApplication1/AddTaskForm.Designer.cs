@@ -36,12 +36,14 @@
             this.MinutesUpDown = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinutesUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TaskComboBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -118,6 +120,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
@@ -139,6 +142,16 @@
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Через";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(0, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(295, 51);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "В разработке";
             // 
             // AddTaskForm
             // 
@@ -171,5 +184,6 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.NumericUpDown MinutesUpDown;
         public System.Windows.Forms.ComboBox TaskComboBox;
+        private System.Windows.Forms.Label label4;
     }
 }

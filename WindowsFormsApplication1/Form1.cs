@@ -47,21 +47,21 @@ namespace WindowsFormsApplication1
 
         public Form1()
         {
-            InitializeComponent();
-
-            //Подгрузка DLL'ки для автообновления//
+            //Подгрузка DLL'ки//
             if (!(File.Exists("AutoUpdater.NET.dll")))
             {
                 using (var client = new WebClient())
                 {
                     client.Headers.Add("user-agent", "Anything");
                     client.DownloadFile(
-                        "https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/bin/Release/AutoUpdater.NET",
-                        "AutoUpdater.NET"); //пофиксить кривое скачивание
+                        "https://raw.githubusercontent.com/BlackRockSoul/LockScreen/master/WindowsFormsApplication1/bin/Release/AutoUpdater.NET.dll",
+                        "AutoUpdater.NET"); //пофиксить кривое скачивание                    
                     File.Move("AutoUpdater.NET", "AutoUpdater.NET" + ".dll");//переименование
                 }
             }
-            //Подгрузка DLL'ки для автообновления//
+            //Подгрузка DLL'ки//
+
+            InitializeComponent();
         }
 
         //Ебучая процедура регистрации горячих клавиш//
@@ -117,7 +117,7 @@ namespace WindowsFormsApplication1
                         forms[i].TopMost = true;
                         forms[i].FormClosing += Form1_FormClosing;
                         forms[i].BringToFront();
-                        
+
                         HideFromAltTab(forms[i].Handle);
                     }
                 }
@@ -189,7 +189,7 @@ namespace WindowsFormsApplication1
             {
                 file.WriteLine(Checkboxes);
                 file.WriteLine("");
-                for (int i = 0; i <= TaskList.Items.Count -1; i++)
+                for (int i = 0; i <= TaskList.Items.Count - 1; i++)
                 {
                     file.WriteLine(TaskList.Items[i].ToString());
                 }
