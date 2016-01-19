@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "LockScreen"
-#define MyAppVersion "1.2.6.2"
+#define MyAppVersion "1.3.3.2"
 #define MyAppPublisher "DefDevTeam"
 #define MyAppURL "https://github.com/BlackRockSoul/LockScreen"
 #define MyAppExeName "LockScreen.exe"
