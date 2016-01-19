@@ -150,6 +150,7 @@
   <ItemGroup>
     <Content Include="Graphicloads-Colorful-Long-Shadow-Lock.ico" />
     <Content Include="Changelog.html" />
+    <Content Include="LockScreen.exe" />
     <Content Include="Update.xml" />
   </ItemGroup>
   <ItemGroup>

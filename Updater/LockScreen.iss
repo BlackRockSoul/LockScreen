@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "LockScreen"
-#define MyAppVersion "1.3.3.2"
+#define MyAppVersion "1.3.3.3"
 #define MyAppPublisher "DefDevTeam"
 #define MyAppURL "https://github.com/BlackRockSoul/LockScreen"
 #define MyAppExeName "LockScreen.exe"
@@ -25,6 +25,7 @@ OutputBaseFilename=setup
 SetupIconFile=D:\Projects\C#\Updater\AutoUpdater.NET\arrow-refresh-4-16.ico
 Compression=lzma
 SolidCompression=yes
+PrivilegesRequired=admin 
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -37,11 +38,14 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\LockScreen.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Projects\C#\LockScreen\WindowsFormsApplication1\bin\Release\MetroFramework.dll"; DestDir: "{app}"; Flags: ignoreversion
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+; NOTE: Don't use "Flags: ignoreversion" on any shared system files                                        
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+
+[UninstallDelete]
+Type: filesandordirs; Name: "{userappdata}\LockScreen" 
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

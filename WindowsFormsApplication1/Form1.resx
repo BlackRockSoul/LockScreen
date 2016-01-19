@@ -229,7 +229,7 @@
     <value>Microsoft Sans Serif, 6pt</value>
   </data>
   <data name="VersionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>479, 278</value>
+    <value>520, 332</value>
   </data>
   <data name="VersionLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 9</value>
@@ -255,99 +255,6 @@
   <metadata name="TaskBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="&gt;&gt;TaskBox.Name" xml:space="preserve">
-    <value>TaskBox</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.Parent" xml:space="preserve">
-    <value>SettingsBox</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="SettingsBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 63</value>
-  </data>
-  <data name="SettingsBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>551, 266</value>
-  </data>
-  <data name="SettingsBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="SettingsBox.Text" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="&gt;&gt;SettingsBox.Name" xml:space="preserve">
-    <value>SettingsBox</value>
-  </data>
-  <data name="&gt;&gt;SettingsBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SettingsBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;SettingsBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="TaskBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AddTask.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TaskList.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="&gt;&gt;AddTask.Name" xml:space="preserve">
-    <value>AddTask</value>
-  </data>
-  <data name="&gt;&gt;AddTask.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AddTask.Parent" xml:space="preserve">
-    <value>TaskBox</value>
-  </data>
-  <data name="&gt;&gt;AddTask.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;TaskList.Name" xml:space="preserve">
-    <value>TaskList</value>
-  </data>
-  <data name="&gt;&gt;TaskList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TaskList.Parent" xml:space="preserve">
-    <value>TaskBox</value>
-  </data>
-  <data name="&gt;&gt;TaskList.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TaskBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 19</value>
-  </data>
-  <data name="TaskBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 238</value>
-  </data>
-  <data name="TaskBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="TaskBox.Text" xml:space="preserve">
-    <value>Задачи</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.Name" xml:space="preserve">
-    <value>TaskBox</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.Parent" xml:space="preserve">
-    <value>SettingsBox</value>
-  </data>
-  <data name="&gt;&gt;TaskBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="AddTask.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -404,6 +311,54 @@
   </data>
   <data name="&gt;&gt;TaskList.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="TaskBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>122, 19</value>
+  </data>
+  <data name="TaskBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 238</value>
+  </data>
+  <data name="TaskBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="TaskBox.Text" xml:space="preserve">
+    <value>Задачи</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Name" xml:space="preserve">
+    <value>TaskBox</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.Parent" xml:space="preserve">
+    <value>SettingsBox</value>
+  </data>
+  <data name="&gt;&gt;TaskBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SettingsBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 63</value>
+  </data>
+  <data name="SettingsBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>551, 266</value>
+  </data>
+  <data name="SettingsBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="SettingsBox.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="&gt;&gt;SettingsBox.Name" xml:space="preserve">
+    <value>SettingsBox</value>
+  </data>
+  <data name="&gt;&gt;SettingsBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SettingsBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SettingsBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

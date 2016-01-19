@@ -39,7 +39,9 @@ namespace WindowsFormsApplication1
         Screen[] sc = Screen.AllScreens;
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_TOOLWINDOW = 0x00000080;
-        const string filePath = "settings.txt";
+        const string fileName = "LockScreen\\settings.ini";
+        string filePath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), fileName);
         string[] Setting_file = new string[100];    //File.ReadAllLines(filePath, Encoding.UTF8);
 
         Random rand = new Random();
@@ -60,6 +62,8 @@ namespace WindowsFormsApplication1
                 }
             }
             //Подгрузка DLL'ки//
+
+            Directory.CreateDirectory(System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +@"\LockScreen");
 
             InitializeComponent();
         }
@@ -185,7 +189,7 @@ namespace WindowsFormsApplication1
                     Checkboxes += "0";
             }
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath))
+            using (StreamWriter file = new StreamWriter(filePath))
             {
                 file.WriteLine(Checkboxes);
                 file.WriteLine("");
